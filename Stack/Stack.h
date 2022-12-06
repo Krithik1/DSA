@@ -2,13 +2,14 @@
 #include <vector>
 using namespace std;
 
+template <class T>
 class Stack {
-    vector<int> arr;
+    vector<T> arr;
     int topIndex;
     public:
         Stack();
-        int getTop();
-        void push(int val);
-        int pop();
+        T getTop();
+        void push(T val);
+        T pop();
         void print();
 };

@@ -1,31 +1,36 @@
 #include "Stack.h"
 
-Stack::Stack() {
+template <class T>
+Stack<T>::Stack() {
     topIndex = -1;
 }
 
-int Stack::getTop() {
+template <class T>
+T Stack<T>::getTop() {
     if (topIndex == -1) {
         cout<<"Not enough elements"<<endl;
-        return -1;
+        return T();
     }
     return arr[topIndex];
 }
 
-void Stack::push(int val) {
+template <class T>
+void Stack<T>::push(T val) {
     arr.push_back(val);
     topIndex++;
 }
 
-int Stack::pop() {
-    int element = arr[topIndex];
+template <class T>
+T Stack<T>::pop() {
+    T element = arr[topIndex];
     arr.pop_back();
     topIndex--;
     return element;
 }
 
-void Stack::print() {
-    for (int i : arr) {
+template <class T>
+void Stack<T>::print() {
+    for (T i : arr) {
         cout<<i<<" ";
     }
     cout<<endl;

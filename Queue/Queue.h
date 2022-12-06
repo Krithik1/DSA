@@ -2,14 +2,15 @@
 #include <vector>
 using namespace std;
 
+template <class T>
 class Queue {
     private:
-        vector<int> arr;
+        vector<T> arr;
         int size;
     public:
         Queue():size(0){};
-        int getFront();
-        void enqueue(int val);
-        int dequeue();
+        T getFront();
+        void enqueue(T val);
+        T dequeue();
         void print();
 };

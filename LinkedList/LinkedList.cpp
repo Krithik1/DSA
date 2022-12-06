@@ -1,25 +1,29 @@
 #include "LinkedList.h"
 
-LinkedList::LinkedList() {
+template <class T>
+LinkedList<T>::LinkedList() {
     headPointer = NULL;
     tailPointer = NULL;
     size = 0;
 }
 
-LinkedList::~LinkedList() {
+template <class T>
+LinkedList<T>::~LinkedList() {
     headPointer = NULL;
     delete headPointer;
     tailPointer = NULL;
     delete tailPointer;
 }
 
-int LinkedList::getSize() {
+template <class T>
+int LinkedList<T>::getSize() {
     return size;
 }
 
-int LinkedList::getValAtI(int index) {
+template <class T>
+T LinkedList<T>::getValAtI(int index) {
     if (index >= size) {
-        return -1;
+        return T();
     }
     Node* root = headPointer;
     for (int i = 0; i < index; i++) {
@@ -31,7 +35,8 @@ int LinkedList::getValAtI(int index) {
     return val;
 }
 
-void LinkedList::push_back(int val) {
+template <class T>
+void LinkedList<T>::push_back(T val) {
     Node* newNode = new Node(val);
     if (headPointer == NULL && tailPointer == NULL) {
         headPointer = newNode;
@@ -49,9 +54,10 @@ void LinkedList::push_back(int val) {
     delete newNode;
 }
 
-int LinkedList::removeAtIndex(int index) {
+template <class T>
+T LinkedList<T>::removeAtIndex(int index) {
     if (index >= size) {
-        return -1;
+        return T();
     }
     Node* rootNode = headPointer;
     Node* prevNode = NULL;
@@ -69,7 +75,7 @@ int LinkedList::removeAtIndex(int index) {
         prevNode->next = nextNode;
     }
     size--;
-    int val = rootNode->val;
+    T val = rootNode->val;
     rootNode = NULL;
     delete rootNode;
     prevNode = NULL;
@@ -79,7 +85,8 @@ int LinkedList::removeAtIndex(int index) {
     return val;
 }
 
-int LinkedList::removeByVal(int val) {
+template <class T>
+T LinkedList<T>::removeByVal(T val) {
     Node* rootNode = headPointer;
     Node* prevNode = NULL;
     Node* nextNode = rootNode->next;
@@ -114,11 +121,12 @@ int LinkedList::removeByVal(int val) {
     delete prevNode;
     nextNode = NULL;
     delete nextNode;
-    cout<<"Element "<<val<<" not in the list";
-    return -1;
+    cout<<"Element not in the list"<<endl;
+    return T();
 }
 
-void LinkedList::swap(int index1, int index2) {
+template <class T>
+void LinkedList<T>::swap(int index1, int index2) {
     Node* prevIndex1 = NULL;
     Node* headIndex1 = headPointer;
     Node* prevIndex2 = NULL;
@@ -164,7 +172,8 @@ void LinkedList::swap(int index1, int index2) {
     delete temp;
 }
 
-void LinkedList::print() {
+template <class T>
+void LinkedList<T>::print() {
     int size_ = size;
     if (size_ == 0) {
         cout<<"List is empty"<<endl;

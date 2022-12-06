@@ -1,31 +1,35 @@
 #include "Queue.h"
 
-int Queue::getFront() {
+template <class T>
+T Queue<T>::getFront() {
     if (size == 0) {
         cout<<"Not enough elements"<<endl;
-        return -1;
+        return T();
     }
     return arr[0];
 }
 
-void Queue::enqueue(int val) {
+template <class T>
+void Queue<T>::enqueue(T val) {
     arr.push_back(val);
     size++;
 }
 
-int Queue::dequeue() {
+template <class T>
+T Queue<T>::dequeue() {
     if (size == 0) {
         cout<<"Not enough elements"<<endl;
-        return -1;
+        return T();
     }
-    int val = getFront();
+    T val = getFront();
     arr.erase(arr.begin(), arr.begin()+1);
     size--;
     return val;
 }
 
-void Queue::print() {
-    for (int i : arr) {
+template <class T>
+void Queue<T>::print() {
+    for (T i : arr) {
         cout<<i<<" ";
     }
     cout<<endl;

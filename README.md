@@ -5,6 +5,7 @@
 - [Linked List Implementation](LinkedList)
 - [Stack Implementation](Stack)
 - [Queue Implementation](Queue)
+- [Binary Search Tree Implementation](BST)
 
 ## HOW TO RUN
 

@@ -1,13 +1,13 @@
 using namespace std;
 #include <iostream>
 
+template <class T>
 class LinkedList {
     private:
-        class Node {
-            public:
-              int val;
-              Node* next;
-              Node(int _val):val(_val){};
+        struct Node {
+            T val;
+            Node* next;
+            Node(T _val):val(_val){};
         };
         Node* headPointer;
         Node* tailPointer;
@@ -15,11 +15,11 @@ class LinkedList {
     public:
         LinkedList();
         ~LinkedList();
-        int getValAtI(int index);
+        T getValAtI(int index);
         int getSize();
-        void push_back(int val);
-        int removeAtIndex(int index);
-        int removeByVal(int val);
+        void push_back(T val);
+        T removeAtIndex(int index);
+        T removeByVal(T val);
         void swap(int index1, int index2);
         void print();
           

@@ -4,11 +4,11 @@ using namespace std;
 class LinkedList {
     private:
         class Node {
-          public:
-            int val;
-            Node* next;
-            Node(int _val):val(_val){};
-          };
+            public:
+              int val;
+              Node* next;
+              Node(int _val):val(_val){};
+        };
         Node* headPointer;
         Node* tailPointer;
         int size;
@@ -20,6 +20,7 @@ class LinkedList {
         void push_back(int val);
         int removeAtIndex(int index);
         int removeByVal(int val);
+        void swap(int index1, int index2);
         void print();
           
 };

@@ -84,7 +84,7 @@ int LinkedList::removeByVal(int val) {
     Node* prevNode = NULL;
     Node* nextNode = rootNode->next;
     
-    for (int count = 0; count < size; count++) {
+    for (int index = 0; index < size; index++) {
         if (rootNode->val == val) {
             if (prevNode == NULL) {
                 headPointer = nextNode;
@@ -116,6 +116,52 @@ int LinkedList::removeByVal(int val) {
     delete nextNode;
     cout<<"Element "<<val<<" not in the list";
     return -1;
+}
+
+void LinkedList::swap(int index1, int index2) {
+    Node* prevIndex1 = NULL;
+    Node* headIndex1 = headPointer;
+    Node* prevIndex2 = NULL;
+    Node* headIndex2 = headPointer;
+    int index = 0;
+    while (index != index1 && headIndex1 != NULL) {
+        prevIndex1 = headIndex1;
+        headIndex1 = headIndex1->next;
+        index++;
+    }
+    index = 0;
+    while (index != index2 && headIndex2 != NULL) {
+        prevIndex2 = headIndex2;
+        headIndex2 = headIndex2->next;
+        index++;
+    }
+    if (headIndex1 == NULL || headIndex2 == NULL) {
+        return;
+    }
+    if (prevIndex1 != NULL) {
+        prevIndex1->next = headIndex2;
+    } else {
+        headPointer = headIndex2;
+    }
+    if (prevIndex2 != NULL) {
+        prevIndex2->next = headIndex1;
+    } else {
+        headPointer = headIndex1;
+    }
+    Node* temp = headIndex1->next;
+    headIndex1->next = headIndex2->next;
+    headIndex2->next = temp;
+    
+    prevIndex1 = NULL;
+    delete prevIndex1;
+    headIndex1 = NULL;
+    delete headIndex1;
+    prevIndex2 = NULL;
+    delete prevIndex2;
+    headIndex2 = NULL;
+    delete headIndex2;
+    temp = NULL;
+    delete temp;
 }
 
 void LinkedList::print() {

@@ -2,8 +2,8 @@
 
 template <class T>
 BST<T>::~BST() {
-    root = NULL;
-    delete root;
+    // delete root;
+    // root = NULL;
 }
 
 template <class T>
@@ -26,7 +26,76 @@ void BST<T>::insert(T val) {
 
 template <class T>
 void BST<T>::swap(T node1, T node2) {
-    // TODO
+    Node* parentNode1 = NULL;
+    Node* node1Pointer = root;
+    Node* parentNode2 = NULL;
+    Node* node2Pointer = root;
+    bool isLeft1 = false;
+    bool isLeft2 = false;
+    while (node1Pointer->val != node1) {
+        parentNode1 = node1Pointer;
+        if (node1 < node1Pointer->val) {
+            if (node1Pointer->left == NULL) {
+                return;
+            }
+            isLeft1 = true;
+            node1Pointer = node1Pointer->left;
+        } else {
+            if (node1Pointer->right == NULL) {
+                return;
+            }
+            isLeft1 = false;
+            node1Pointer = node1Pointer->right;
+        }
+    }
+    while (node2Pointer->val != node2) {
+        parentNode2 = node2Pointer;
+        if (node2 < node2Pointer->val) {
+            if (node2Pointer->left == NULL) {
+                return;
+            }
+            isLeft1 = true;
+            node2Pointer = node2Pointer->left;
+        } else {
+            if (node2Pointer->right == NULL) {
+                return;
+            }
+            isLeft1 = false;
+            node2Pointer = node2Pointer->right;
+        }
+    }
+    Node* temp1 = node1Pointer->left;
+    Node* temp2 = node1Pointer->right;
+    if (isLeft1 && isLeft2) {
+        parentNode1->left = node2Pointer;
+        parentNode2->left = node1Pointer;
+    } else if (isLeft1) {
+        parentNode1->left = node2Pointer;
+        parentNode2->right = node1Pointer;
+    } else if (isLeft2) {
+        parentNode1->right = node2Pointer;
+        parentNode2->left = node1Pointer;
+    } else {
+        parentNode1->right = node2Pointer;
+        parentNode2->right = node1Pointer;
+    }
+    node1Pointer->left = node2Pointer->left;
+    node1Pointer->right = node2Pointer->right;
+    node2Pointer->left = temp1;
+    node2Pointer->right = temp2;
+  
+    // delete parentNode1;
+    // parentNode1 = NULL;
+    // delete node1Pointer;
+    // node1Pointer = NULL;
+    // delete parentNode2;
+    // parentNode2 = NULL;
+    // delete node2Pointer;
+    // node2Pointer = NULL;
+    // delete temp1;
+    // temp1 = NULL;
+    // delete temp2;
+    // temp2 = NULL;
 }
 
 template <class T>
@@ -36,19 +105,19 @@ void BST<T>::remove(Node* &node, T val) {
     }
     if (node->val == val) {
         if (node->left == NULL && node->right == NULL) {
+            // delete node;
             node = NULL;
-            delete node;
         } else if (node->left == NULL) {
             Node* temp = node;
             node = node->right;
-            temp = NULL;
-            delete temp;
+            // delete temp;
+            // temp = NULL;
         } else if (node->right == NULL) {
             Node* temp = node;
             node = node->left;
             node->left = NULL;
-            temp = NULL;
-            delete temp;
+            // delete temp;
+            // temp = NULL;
         } else {
             Node* temp = node->right;
             while (temp->left != NULL) {
@@ -57,8 +126,8 @@ void BST<T>::remove(Node* &node, T val) {
             node->val = temp->val;
             temp->val = val;
             remove(node->right, temp->val);
-            temp = NULL;
-            delete temp;
+            // delete temp;
+            // temp = NULL;
         }
         return;
     }

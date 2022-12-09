@@ -15,6 +15,7 @@ int main() {
     avl.remove(5);
     avl.remove(6);
     avl.insert(1);
+    avl.swap(3,9);
     avl.printInOrder();
     avl.printPreOrder();
     avl.printPostOrder();

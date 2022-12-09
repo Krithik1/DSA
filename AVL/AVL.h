@@ -32,6 +32,7 @@ class AVL {
         void insert(T val);
         T remove(T val);
         bool search(T val);
+        void swap(T node1, T node2);
         void printInOrder();
         void printPreOrder();
         void printPostOrder();

@@ -6,6 +6,7 @@
 - [Stack Implementation](Stack)
 - [Queue Implementation](Queue)
 - [Binary Search Tree Implementation](BST)
+- [AVL Binary Search Tree Implementation](AVL)
 
 ## HOW TO RUN
 

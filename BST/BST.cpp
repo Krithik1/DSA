@@ -76,6 +76,25 @@ T BST<T>::remove(T val) {
 }
 
 template <class T>
+bool BST<T>::search(Node* node, T val) {
+    if (node == NULL) {
+        return false;
+    }
+    if (node->val == val) {
+        return true;
+    }
+    if (node->val < val) {
+        return search(node->right, val);
+    }
+    return search(node->left, val);
+}
+
+template <class T>
+bool BST<T>::search(T val) {
+    return search(root, val);
+}
+
+template <class T>
 void BST<T>::printInOrder(Node* node) {
     if (node == NULL) {
         return;

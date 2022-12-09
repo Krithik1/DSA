@@ -2,32 +2,21 @@
 #include "Stack/Stack.cpp"
 #include "Queue/Queue.cpp"
 #include "BST/BST.cpp"
+#include "AVL/AVL.cpp"
 
 int main() {
-    BST<int> bst = BST<int>();
-    bst.insert(4);
-    bst.insert(12);
-    bst.insert(3);
-    bst.insert(5);
-    bst.insert(1);
-    cout<<bst.remove(3)<<endl;
-    cout<<bst.remove(12)<<endl;
-    bst.printInOrder();
-    bst.printPreOrder();
-    bst.printPostOrder();
-    bst.insert(13);
-    bst.insert(50);
-    bst.insert(11);
-    bst.printInOrder();
-    bst.printPreOrder();
-    bst.printPostOrder();
-    cout<<bst.remove(4)<<endl;
-    bst.printInOrder();
-    bst.printPreOrder();
-    bst.printPostOrder();
-    cout<<bst.remove(5)<<endl;
-    bst.printInOrder();
-    bst.printPreOrder();
-    bst.printPostOrder();
+    AVL<int> avl = AVL<int>();
+    avl.insert(9);
+    avl.insert(6);
+    avl.insert(5);
+    avl.insert(4);
+    avl.insert(3);
+    avl.insert(2);
+    avl.remove(5);
+    avl.remove(6);
+    avl.insert(1);
+    avl.printInOrder();
+    avl.printPreOrder();
+    avl.printPostOrder();
     return 0;
 }

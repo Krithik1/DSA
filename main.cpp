@@ -3,21 +3,25 @@
 #include "Queue/Queue.cpp"
 #include "BST/BST.cpp"
 #include "AVL/AVL.cpp"
+#include "Heap/Heap.cpp"
 
 int main() {
-    AVL<int> avl = AVL<int>();
-    avl.insert(9);
-    avl.insert(6);
-    avl.insert(5);
-    avl.insert(4);
-    avl.insert(3);
-    avl.insert(2);
-    avl.remove(5);
-    avl.remove(6);
-    avl.insert(1);
-    avl.swap(3,9);
-    avl.printInOrder();
-    avl.printPreOrder();
-    avl.printPostOrder();
+    Heap<int> heap = Heap<int>();
+    heap.push(3);
+    heap.print();
+    heap.push(4);
+    heap.print();
+    heap.push(1);
+    heap.print();
+    heap.push(50);
+    heap.print();
+    heap.push(45);
+    heap.print();
+    heap.push(100);
+    heap.print();
+    heap.push(46);
+    heap.print();
+    heap.pop();
+    heap.print();
     return 0;
 }

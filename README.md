@@ -8,6 +8,7 @@
 - [Binary Search Tree Implementation](BST)
 - [AVL Binary Search Tree Implementation](AVL)
 - [Heap Implementation](Heap)
+- [Disjoint Set Implementation](DisjointSet)
 
 ## HOW TO RUN
 

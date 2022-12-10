@@ -28,6 +28,11 @@ T Queue<T>::dequeue() {
 }
 
 template <class T>
+bool Queue<T>::isEmpty() {
+    return (size == 0);
+}
+
+template <class T>
 void Queue<T>::print() {
     for (T i : arr) {
         cout<<i<<" ";

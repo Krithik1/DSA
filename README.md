@@ -9,6 +9,8 @@
 - [AVL Binary Search Tree Implementation](AVL)
 - [Heap Implementation](Heap)
 - [Disjoint Set Implementation](DisjointSet)
+- [Graph Implementation using Adjency List](Graph/AdjencyList)
+- [Graph Implementation using Adjency Matrix](Graph/AdjencyMatrix)
 
 ## HOW TO RUN
 

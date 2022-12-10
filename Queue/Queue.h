@@ -12,5 +12,6 @@ class Queue {
         T getFront();
         void enqueue(T val);
         T dequeue();
+        bool isEmpty();
         void print();
 };

@@ -18,6 +18,7 @@ class BST {
         void printInOrder(Node* node);
         void printPreOrder(Node* node);
         void printPostOrder(Node* node);
+        void clear(Node* &node);
     public:
         BST():root(NULL){};
         ~BST();

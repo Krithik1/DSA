@@ -2,8 +2,18 @@
 
 template <class T>
 BST<T>::~BST() {
-    // delete root;
-    // root = NULL;
+    clear(root);
+}
+
+template <class T>
+void BST<T>::clear(Node* &node) {
+    if (node == NULL) {
+        return;
+    }
+    clear(node->left);
+    clear(node->right);
+    delete node;
+    node = NULL;
 }
 
 template <class T>
@@ -83,19 +93,6 @@ void BST<T>::swap(T node1, T node2) {
     node1Pointer->right = node2Pointer->right;
     node2Pointer->left = temp1;
     node2Pointer->right = temp2;
-  
-    // delete parentNode1;
-    // parentNode1 = NULL;
-    // delete node1Pointer;
-    // node1Pointer = NULL;
-    // delete parentNode2;
-    // parentNode2 = NULL;
-    // delete node2Pointer;
-    // node2Pointer = NULL;
-    // delete temp1;
-    // temp1 = NULL;
-    // delete temp2;
-    // temp2 = NULL;
 }
 
 template <class T>
@@ -105,19 +102,14 @@ void BST<T>::remove(Node* &node, T val) {
     }
     if (node->val == val) {
         if (node->left == NULL && node->right == NULL) {
-            // delete node;
             node = NULL;
         } else if (node->left == NULL) {
             Node* temp = node;
             node = node->right;
-            // delete temp;
-            // temp = NULL;
         } else if (node->right == NULL) {
             Node* temp = node;
             node = node->left;
             node->left = NULL;
-            // delete temp;
-            // temp = NULL;
         } else {
             Node* temp = node->right;
             while (temp->left != NULL) {
@@ -126,8 +118,6 @@ void BST<T>::remove(Node* &node, T val) {
             node->val = temp->val;
             temp->val = val;
             remove(node->right, temp->val);
-            // delete temp;
-            // temp = NULL;
         }
         return;
     }

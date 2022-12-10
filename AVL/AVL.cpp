@@ -2,7 +2,18 @@
 
 template <class T>
 AVL<T>::~AVL() {
-    // delete root;
+    clear(root);
+}
+
+template <class T>
+void AVL<T>::clear(Node* &node) {
+    if (node == NULL) {
+        return;
+    }
+    clear(node->left);
+    clear(node->right);
+    delete node;
+    node = NULL;
 }
 
 template <class T>
@@ -29,9 +40,6 @@ int AVL<T>::height(Node* node) {
     if (node == NULL) {
         return 0;
     }
-    // if (node->left == NULL && node->right == NULL) {
-    //     return 0;
-    // }
     return node->height;
 }
 
@@ -58,8 +66,6 @@ void AVL<T>::rotateRight(Node* &node) {
 
     updateHeight(node->right);
     updateHeight(node);
-    // delete temp1;
-    // delete temp2;
 }
 
 template <class T>
@@ -69,10 +75,9 @@ void AVL<T>::rotateLeft(Node* &node) {
     node = node->right;
     node->left = temp1;
     node->left->right = temp2;
-    
+
+    updateHeight(node->left);
     updateHeight(node);
-    // delete temp1;
-    // delete temp2;
 }
 
 template <class T>
@@ -129,8 +134,6 @@ void AVL<T>::balanceTree(Node* &node) {
         }
     }
     updateHeight(node);
-    // delete leftChild;
-    // delete rightChild;
 }
 
 template <class T>
@@ -192,12 +195,10 @@ void AVL<T>::remove(Node* &node, T val) {
         } else if (node->left == NULL) {
             Node* temp = node;
             node = node->right;
-            //delete temp;
         } else if (node->right == NULL) {
             Node* temp = node;
             node = node->left;
             node->left = NULL;
-            //delete temp;
         } else {
             Node* temp = node->right;
             while (temp->left != NULL) {
@@ -206,7 +207,6 @@ void AVL<T>::remove(Node* &node, T val) {
             node->val = temp->val;
             temp->val = val;
             remove(node->right, temp->val);
-            //delete temp;
         }
         balanceTree(node);
         return;
@@ -303,11 +303,4 @@ void AVL<T>::swap(T node1, T node2) {
     node1Pointer->right = node2Pointer->right;
     node2Pointer->left = temp1;
     node2Pointer->right = temp2;
-
-    // delete parentNode1;
-    // delete node1Pointer;
-    // delete parentNode2;
-    // delete node2Pointer;
-    // delete temp1;
-    // delete temp2;
 }

@@ -26,6 +26,7 @@ class AVL {
         void printInOrder(Node* node);
         void printPreOrder(Node* node);
         void printPostOrder(Node* node);
+        void clear(Node* &node);
     public:
         AVL():root(NULL){};
         ~AVL();

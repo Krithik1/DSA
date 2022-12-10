@@ -30,8 +30,6 @@ T LinkedList<T>::getValAtI(int index) {
         root = root->next;
     }
     int val = root->val;
-    // delete root;
-    // root = NULL;
     return val;
 }
 
@@ -48,10 +46,6 @@ void LinkedList<T>::push_back(T val) {
     tailNode->next = newNode;
     tailPointer = newNode;
     size++;
-    // delete tailNode;
-    // tailNode = NULL;
-    // delete newNode;
-    // newNode = NULL;
 }
 
 template <class T>
@@ -76,12 +70,6 @@ T LinkedList<T>::removeAtIndex(int index) {
     }
     size--;
     T val = rootNode->val;
-    // delete rootNode;
-    // rootNode = NULL;
-    // delete prevNode;
-    // prevNode = NULL;
-    // delete nextNode;
-    // nextNode = NULL;
     return val;
 }
 
@@ -115,12 +103,6 @@ T LinkedList<T>::removeByVal(T val) {
             nextNode = rootNode->next;
         }
     }
-    // delete rootNode;
-    // rootNode = NULL;
-    // delete prevNode;
-    // prevNode = NULL;
-    // delete nextNode;
-    // nextNode = NULL;
     cout<<"Element not in the list"<<endl;
     return T();
 }
@@ -159,16 +141,6 @@ void LinkedList<T>::swap(int index1, int index2) {
     Node* temp = headIndex1->next;
     headIndex1->next = headIndex2->next;
     headIndex2->next = temp;
-    
-    // delete prevIndex1;
-    // prevIndex1 = NULL;
-    // delete headIndex1;
-    // headIndex1 = NULL;
-    // delete prevIndex2;
-    // prevIndex2 = NULL;
-    // delete headIndex2;
-    // headIndex2 = NULL;
-    // delete temp;
     temp = NULL;
 }
 
@@ -185,7 +157,5 @@ void LinkedList<T>::print() {
         rootNode = rootNode->next;
         size_--;
     }
-    // delete rootNode;
-    // rootNode = NULL;
     cout<<endl;
 }

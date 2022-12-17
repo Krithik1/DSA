@@ -12,7 +12,7 @@
 - [Graph Implementation using Adjacency List](Graph/AdjacencyList)
 - [Graph Implementation using Adjacency Matrix](Graph/AdjacencyMatrix)
 - [Kruskal's Imlementation](Algorithms/Kruskals.cpp)
-- [Merge Sort Implementation]
+- [Merge Sort Implementation](Algorithms/MergeSort.cpp)
 
 ## HOW TO RUN
 

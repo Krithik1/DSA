@@ -4,28 +4,28 @@
 #include "BST/BST.cpp"
 #include "AVL/AVL.cpp"
 #include "Heap/Heap.cpp"
-#include "DisjointSet/DisjointSet.cpp"
-#include "Graph/AdjencyMatrix/MGraph.cpp"
-#include "Graph/AdjencyList/LGraph.cpp"
+//#include "DisjointSet/DisjointSet.cpp"
+#include "Graph/AdjacencyMatrix/MGraph.cpp"
+//#include "Graph/AdjencyList/LGraph.cpp"
+#include "Algorithms/Kruskals.cpp"
+#include "Algorithms/MergeSort.cpp"
 
 int main() {
-    // Graph g = Graph(7);
-    // g.insertEdge(0, 1);
-    // g.insertEdge(0, 2);
-    // g.insertEdge(0, 6);
-    // g.insertEdge(1, 2);
-    // g.insertEdge(1, 5);
-    // g.insertEdge(2, 3);
-    // g.insertEdge(2, 5);
-    // g.insertEdge(2, 4);
-    // g.insertEdge(5, 4);
-    // g.insertEdge(3, 4);
-    // g.insertEdge(3, 6);
-    MGraph g = MGraph(5);
-    g.insertEdge(0, 1);
-    g.insertEdge(0, 2);
-    g.insertEdge(1, 3);
-    g.insertEdge(1, 4);
-    g.dfs(0);
-    return 0;
+  // pair<int,int> edge1 = pair<int,int>(0,1);
+  // pair<int,int> edge2 = pair<int,int>(0,2);
+  // pair<int,int> edge3 = pair<int,int>(1,3);
+  // pair<int,int> edge4 = pair<int,int>(1,4);
+  // pair<int,int> edge5 = pair<int,int>(2,3);
+  // pair<int,int> edge6 = pair<int,int>(3,4);
+
+  // vector<pair<int,int>> edgeList{edge1, edge5, edge4, edge6, edge2, edge3};
+  // int numNodes = 5;
+  // kruskalsAlgo(edgeList, numNodes);
+  vector<int> arr{5, 3, 6, 4, 2, 9, 1};
+  mergeSort(arr);
+  for (int i : arr) {
+    cout<<i<<" ";
+  }
+  cout<<endl;
+  return 0;
 }

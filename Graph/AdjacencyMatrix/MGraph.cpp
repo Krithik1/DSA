@@ -51,7 +51,7 @@ void MGraph::dfs(int startNode) {
     }
 }
 
-void MGraph::printAdjencyMatrix() {
+void MGraph::printAdjacencyMatrix() {
     for (vector<int> v : matrix) {
         for (int i : v) {
             cout<<i<<" ";

@@ -1,6 +1,16 @@
 #include "Heap.h"
 
 template <class T>
+Heap<T>::Heap(vector<T> _arr) {
+    arr = _arr;
+    size = arr.size();
+    int startIndex = arr.size()/2-1;
+    for (int i = startIndex; i >= 0; i--) {
+        heapifyDown(arr, i);
+    }
+}
+
+template <class T>
 void Heap<T>::heapifyUp(int curr) {
     int index = curr/2-1;
     curr--;

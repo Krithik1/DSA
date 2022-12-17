@@ -3,13 +3,13 @@
 #include <stack>
 
 void LGraph::insertNode() {
-    adjencyList.push_back(vector<int>());
+    adjacencyList.push_back(vector<int>());
     numNodes++;
 }
 
 void LGraph::insertEdge(int node1, int node2) {
-    adjencyList[node1].push_back(node2);
-    adjencyList[node2].push_back(node1);
+    adjacencyList[node1].push_back(node2);
+    adjacencyList[node2].push_back(node1);
 }
 
 void LGraph::bfs(int startNode) {
@@ -21,8 +21,8 @@ void LGraph::bfs(int startNode) {
         int node = q.front();
         cout<<node<<endl;
         q.pop();
-        for (int i = 0; i < adjencyList[node].size(); i++) {
-            int nodeOfInterest = adjencyList[node][i];
+        for (int i = 0; i < adjacencyList[node].size(); i++) {
+            int nodeOfInterest = adjacencyList[node][i];
             if (!visited[nodeOfInterest]) {
                 visited[nodeOfInterest] = true;
                 q.push(nodeOfInterest);
@@ -40,8 +40,8 @@ void LGraph::dfs(int startNode) {
         int node = s.top();
         cout<<node<<endl;
         s.pop();
-        for (int i = adjencyList[node].size()-1; i >= 0; i--) {
-            int nodeOfInterest = adjencyList[node][i];
+        for (int i = adjacencyList[node].size()-1; i >= 0; i--) {
+            int nodeOfInterest = adjacencyList[node][i];
             if (!visited[nodeOfInterest]) {
                 visited[nodeOfInterest] = true;
                 s.push(nodeOfInterest);
@@ -50,8 +50,8 @@ void LGraph::dfs(int startNode) {
     }
 }
 
-void LGraph::printAdjencyList() {
-    for (vector<int> v : adjencyList) {
+void LGraph::printAdjacencyList() {
+    for (vector<int> v : adjacencyList) {
         for (int i : v) {
             cout<<i<<" ";
         }

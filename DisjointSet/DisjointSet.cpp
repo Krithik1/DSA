@@ -1,19 +1,22 @@
 #include "DisjointSet.h"
 
-template <class T>
-DisjointSet<T>::DisjointSet(int _size) {
+
+DisjointSet::DisjointSet(int _size) {
     size = _size;
     set = vector<int>(size, -1);
 }
 
-template <class T>
-bool DisjointSet<T>::find(T x, T y) {
-    return (set[x] == set[y] && set[x] != -1);
+
+int DisjointSet::find(int x) {
+    if (set[x] < 0) {
+      return x;
+    }
+    return find(set[x]);
 }
 
-template <class T>
-void DisjointSet<T>::merge(T x, T y) {
-    if (find(x, y)) {
+
+void DisjointSet::merge(int x, int y) {
+    if (find(x) == find(y)) {
         cout<<"We have a cycle"<<endl;
         return;
     }
@@ -34,9 +37,9 @@ void DisjointSet<T>::merge(T x, T y) {
     }
 }
 
-template <class T>
-void DisjointSet<T>::print() {
-    for (T val : set) {
+
+void DisjointSet::print() {
+    for (int val : set) {
         cout<<val<<" ";
     }
     cout<<endl;

@@ -15,12 +15,12 @@ class LinkedList {
     public:
         LinkedList();
         ~LinkedList();
-        T getValAtI(int index);
-        int getSize();
-        void push_back(T val);
-        T removeAtIndex(int index);
-        T removeByVal(T val);
-        void swap(int index1, int index2);
-        void print();
+        T getValAtI(int index); //O(n)
+        int getSize(); //O(1)
+        void push_back(T val); //O(1) - because of tail pointer else O(n)
+        T removeAtIndex(int index); //O(n)
+        T removeByVal(T val); //O(n)
+        void swap(int index1, int index2); //O(n)
+        void print(); //O(n)
           
 };
